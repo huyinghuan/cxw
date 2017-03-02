@@ -1,0 +1,20 @@
+{
+    "command": "go",
+    "version": "0.1.0",
+    "echoCommand": false,
+    "showOutput": "always",
+    "isShellCommand": true,
+    "options": {
+      "env": {
+        "GOPATH": "${workspaceRoot}",
+        "GOROOT": "/usr/local/go"
+      }
+    },
+    "tasks": [
+      {
+         "taskName": "run",
+         "isBuildCommand": true,
+         "args": ["src/index.go"]
+      }
+    ]
+}

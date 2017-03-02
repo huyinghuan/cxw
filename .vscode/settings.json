@@ -1,0 +1,4 @@
+{
+  "go.gopath": "${workspaceRoot}",
+  "go.goroot": "/usr/local/go"
+}

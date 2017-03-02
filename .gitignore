@@ -1,0 +1,6 @@
+bin
+github.com
+pkg
+~*
+*.xlsx
+*.exe

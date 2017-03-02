@@ -1,0 +1,43 @@
+{
+  "excelKind": "TwolayerCategory",
+  "category":"CarLine",
+  "twoCategory": "CarID",
+  "cols":[
+    "SubmitDate",
+    "DepartDate",
+    "CarID",
+    "CarType",
+    "CarLine",
+    "Mileage",
+    "Times",
+    "OilSelfCosts",
+    "OilRefuelNumber",
+    "OilStationCosts",
+    "ReturnMoney",
+    "TransitHighwayCashCosts",
+    "RepairCashCosts",
+    "CarAndGoodsWeight",
+    "CarOnlyWeight",
+    "GoodsWeight",
+    "ResultForOilReturnCash"
+  ],
+  "sum":[
+    "",
+    "",
+    "",
+    "",
+    "~CarLine",
+    "Mileage",
+    "Times",
+    "OilSelfCosts",
+    "OilRefuelNumber",
+    "OilStationCosts",
+    "ReturnMoney",
+    "TransitHighwayCashCosts",
+    "RepairCashCosts",
+    "CarAndGoodsWeight",
+    "CarOnlyWeight",
+    "GoodsWeight",
+    "ResultForOilReturnCash"
+  ]
+}

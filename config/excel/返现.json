@@ -1,0 +1,42 @@
+{
+  "excelKind": "SimpleCategory",
+  "category":"CarID",
+  "cols":[
+    "SubmitDate",
+    "DepartDate",
+    "CarID",
+    "CarType",
+    "CarLine",
+    "Mileage",
+    "Times",
+    "OilSelfCosts",
+    "OilRefuelNumber",
+    "OilStationCosts",
+    "ReturnMoney",
+    "TransitHighwayCashCosts",
+    "RepairCashCosts",
+    "CarAndGoodsWeight",
+    "CarOnlyWeight",
+    "GoodsWeight",
+    "ResultForOilReturnCash"
+  ],
+  "sum":[
+    "",
+    "",
+    "~CarID",
+    "~CarType",
+    "",
+    "Mileage",
+    "Times",
+    "OilSelfCosts",
+    "OilRefuelNumber",
+    "OilStationCosts",
+    "ReturnMoney",
+    "TransitHighwayCashCosts",
+    "RepairCashCosts",
+    "CarAndGoodsWeight",
+    "CarOnlyWeight",
+    "GoodsWeight",
+    "ResultForOilReturnCash"
+  ]
+}
