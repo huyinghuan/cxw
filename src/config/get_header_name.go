@@ -1,21 +1,22 @@
 package config
 
 import (
-	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"strings"
+
+	_yaml "gopkg.in/yaml.v2"
 )
 
 //GetMapValue 获取列名数组
 func GetMapValue(keys []string) []string {
-	fileContentByte, err := ioutil.ReadFile("config/name.json")
+	fileContentByte, err := ioutil.ReadFile("config/name.yml")
 	if err != nil {
 		fmt.Println(err)
 		panic("read name.json error")
 	}
 	var cols = make(map[string]string)
-	err = json.Unmarshal(fileContentByte, &cols)
+	err = _yaml.Unmarshal(fileContentByte, &cols)
 	if err != nil {
 		fmt.Println(err)
 		panic("json parse name.json error")
