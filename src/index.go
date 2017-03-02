@@ -17,7 +17,7 @@ func main() {
 	//打印声明
 	config.PrintStatement()
 	//获取数据源格式
-	excelLayout, err := config.ReadExcelLayout("config/excel-layout.json")
+	excelLayout, err := config.ReadExcelLayout("config/excel-layout.yml")
 	if err != nil {
 		fmt.Println("读取数据源配置文件错误")
 		return

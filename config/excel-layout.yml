@@ -1,0 +1,31 @@
+---
+skip: 2
+order:
+- SubmitDate
+- DepartDate
+- CarLine
+- CarLineType
+- Payer
+- CarID
+- CarType
+- Mileage
+- Times
+- OilWear
+- OilPrice
+- OilRefuelNumber
+- OilStationPrice
+- TransitHighwayCashCosts
+- TransitHighwayETCCosts
+- RepairDepreciationRate
+- RepairCashCosts
+- Material
+- Maintain
+- Fine
+- RentCosts
+- Other
+- ''
+- Remark
+- FreightCode
+- CarAndGoodsWeight
+- CarOnlyWeight
+- GoodsWeight

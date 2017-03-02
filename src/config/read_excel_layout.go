@@ -1,9 +1,10 @@
 package config
 
 import (
-	"encoding/json"
 	"fmt"
 	"io/ioutil"
+
+	_yaml "gopkg.in/yaml.v2"
 )
 
 //ReadExcelLayout 读取数据源文件的 excel 结构
@@ -14,6 +15,6 @@ func ReadExcelLayout(filename string) (layout *ExcelLayout, returnErr error) {
 		returnErr = err
 		return
 	}
-	err = json.Unmarshal(fileContentByte, &layout)
+	err = _yaml.Unmarshal(fileContentByte, &layout)
 	return
 }
