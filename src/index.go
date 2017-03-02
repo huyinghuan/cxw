@@ -23,8 +23,7 @@ func main() {
 		return
 	}
 
-	outputConfig, err := config.ReadOutput("config/output.json")
-
+	outputConfig, err := config.ReadOutputYaml("config/output.yml")
 	if err != nil {
 		return
 	}

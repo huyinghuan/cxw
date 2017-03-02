@@ -117,20 +117,20 @@ func outputOneExcel(configFileName string, outputFile string, excelRows []*data.
 }
 
 //BuildOne 输入一个数据源，输出一个表格， 包含多个sheet
-func BuildOne(inputDataSource string, sheetConfig map[string]interface{}, layout *config.ExcelLayout) {
+func BuildOne(inputDataSource string, sheetConfig map[string]string, layout *config.ExcelLayout) {
 	//获取数据源的数据
 	var excelRowsData = GetDataSource(inputDataSource, layout)
 	if err := kind.CalculateAll(excelRowsData, layout.Skip); err != nil {
 		return
 	}
 	for configFileName, outputFile := range sheetConfig {
-		outputOneExcel(configFileName, outputFile.(string), excelRowsData)
+		outputOneExcel(configFileName, outputFile, excelRowsData)
 	}
 }
 
 //BuildAll 生成所有文件
-func BuildAll(outputConfig map[string]interface{}, layout *config.ExcelLayout) {
+func BuildAll(outputConfig map[string]map[string]string, layout *config.ExcelLayout) {
 	for key, value := range outputConfig {
-		BuildOne(key, value.(map[string]interface{}), layout)
+		BuildOne(key, value, layout)
 	}
 }
