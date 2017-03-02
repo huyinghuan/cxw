@@ -1,0 +1,9 @@
+name:      "申通物流 数据分析系统【春晓版】"
+version:   "1.2"
+copyright: "ec.huyinghuan@gmail.com"
+publish:   "2017-03-02"
+thanks: 
+  - 宋春晓
+dependencies:
+  - github.com/tealeg/xlsx
+  - gopkg.in/yaml.v2

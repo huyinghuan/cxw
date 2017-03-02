@@ -4,3 +4,4 @@ pkg
 ~*
 *.xlsx
 *.exe
+gopkg.in

@@ -2,13 +2,20 @@
 
   老婆大人的数据汇总工作自动化
 
-## 依赖
+## 🙏感谢
 
-[excel lib](github.com/tealeg/xlsx)
+[excel lib](https://github.com/tealeg/xlsx)
+[yaml lib](https://gopkg.in/yaml.v2)
 
-## 软件说明：
+## History
 
-- 版本：1.0
-- 软件开发: ec.huyinghuan@gmail.com
-- 版权所有: ec.huyinghuan@gmail.com
+  版本：1.2
+
+## 软件开发
+  
+  ec.huyinghuan@gmail.com
+
+## 版权所有
+  
+  ec.huyinghuan@gmail.com
 
