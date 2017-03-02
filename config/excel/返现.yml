@@ -1,5 +1,4 @@
----
-excelKind: SimpleCategory
+excelkind: SimpleCategory
 category: CarID
 cols:
 - SubmitDate

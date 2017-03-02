@@ -1,7 +1,6 @@
----
-excelKind: TwolayerCategory
+excelkind: TwolayerCategory
 category: CarLine
-twoCategory: CarID
+twocategory: CarID
 cols:
 - SubmitDate
 - DepartDate

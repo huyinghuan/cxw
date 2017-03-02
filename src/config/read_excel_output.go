@@ -1,9 +1,10 @@
 package config
 
 import (
-	"encoding/json"
 	"fmt"
 	"io/ioutil"
+
+	_yaml "gopkg.in/yaml.v2"
 )
 
 //ReadExcelOutput 读取一个输出excel的文件格式
@@ -15,7 +16,7 @@ func ReadExcelOutput(outputConfigName string) (outputConfig *ExcelOutput) {
 		panic("Error!")
 	}
 
-	if err := json.Unmarshal(fileContentByte, &outputConfig); err != nil {
+	if err := _yaml.Unmarshal(fileContentByte, &outputConfig); err != nil {
 		fmt.Printf("%v\n解析配置出错:%s", err, outputConfigName)
 		panic("Error!")
 	}

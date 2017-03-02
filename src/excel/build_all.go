@@ -87,12 +87,12 @@ func outputOneExcel(configFileName string, outputFile string, excelRows []*data.
 	//为了能够反射struct的函数，new个空间
 	var excelFactory = new(kind.Factory)
 	//获取表格配置文件
-	var excelConfig = config.ReadExcelOutput("config/excel/" + configFileName + ".json")
-
+	var excelConfig = config.ReadExcelOutput("config/excel/" + configFileName + ".yml")
 	//------------------------------------
 	//获取 配置里面的 数据分组函数名
 	//通过反射机制 加工分组 数据
 	categoryGroup := make(map[string][]*data.ExcelRowData)
+
 	utils.Invoke(excelFactory, excelConfig.ExcelKind, excelRows, excelConfig, categoryGroup)
 	//强转
 	//------------------------------------
