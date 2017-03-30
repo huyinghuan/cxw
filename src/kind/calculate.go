@@ -6,6 +6,14 @@ import (
 	"utils"
 )
 
+func vertifyCarId(lineData *data.ExcelRowData, index int) int {
+	if lineData.CarID == "" {
+		fmt.Printf("源数据校验 %s 错误,错误行数%d\n", "==车牌有误==", index)
+		return 0
+	}
+	return 1
+}
+
 func vertifyMileageAndOilPriceAndOilWear(lineData *data.ExcelRowData, index int) int {
 	if lineData.Mileage != 0 && (lineData.OilPrice == 0 || lineData.OilWear == 0) {
 		fmt.Printf("源数据校验 %s 错误,错误行数%d\n", "==油价或油耗==", index)
@@ -24,7 +32,7 @@ func vertifyOilRefuelNumberAndOilStationPrice(lineData *data.ExcelRowData, index
 }
 
 func vertify(lineData *data.ExcelRowData, index int) int {
-	return vertifyMileageAndOilPriceAndOilWear(lineData, index) * vertifyOilRefuelNumberAndOilStationPrice(lineData, index)
+	return vertifyMileageAndOilPriceAndOilWear(lineData, index) * vertifyOilRefuelNumberAndOilStationPrice(lineData, index) * vertifyCarId(lineData, index)
 }
 
 //CalculateAll 计算应该计算的东西
