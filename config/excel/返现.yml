@@ -1,5 +1,6 @@
 excelkind: SimpleCategory
 category: CarID
+calculate: CalculateAll
 cols:
 - SubmitDate
 - DepartDate

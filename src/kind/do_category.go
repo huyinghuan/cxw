@@ -52,3 +52,23 @@ func (excelKind *Factory) TwolayerCategory(excelRows []*data.ExcelRowData, excel
 	}
 
 }
+
+func (excelKind *Factory) MixCategory(excelRows []*data.ExcelRowData, excelOutputConfig *config.ExcelOutput, lineData map[string][]*data.ExcelRowData) {
+	var category = excelOutputConfig.Category
+	var mixto = excelOutputConfig.Mixto
+
+	for _, item := range excelRows {
+		categoryReflectValue := utils.FieldByName(item, category)
+		mixtoRelectValue := utils.FieldByName(item, mixto)
+		categoryValue := categoryReflectValue.(string)
+		mixtoValue := mixtoRelectValue.(string)
+
+		//hasher := md5.New()
+		//hasher.Write([]byte(categoryValue + mixtoValue))
+		key := categoryValue + mixtoValue
+		if _, ok := lineData[key]; !ok {
+			lineData[key] = []*data.ExcelRowData{}
+		}
+		lineData[key] = append(lineData[key], item)
+	}
+}

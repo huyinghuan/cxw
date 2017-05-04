@@ -36,7 +36,7 @@ func vertify(lineData *data.ExcelRowData, index int) int {
 }
 
 //CalculateAll 计算应该计算的东西
-func CalculateAll(lineDataArrar []*data.ExcelRowData, lineSkipNumber int) error {
+func (excelKind *Factory) CalculateAll(lineDataArrar []*data.ExcelRowData, lineSkipNumber int) error {
 	var vertifyFlag = true
 	for index, lineData := range lineDataArrar {
 		if vertify(lineData, index+lineSkipNumber+1) != 1 {

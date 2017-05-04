@@ -1,0 +1,20 @@
+excelkind: MixCategory
+category: CarID
+mixto: CarLine
+onlysum: true
+cols:
+- SubmitDate
+- DepartDate
+- CarID
+- CarType
+- CarLine
+- Mileage
+- Times
+sum:
+- ''
+- ''
+- "~CarID"
+- "~CarType"
+- "~CarLine"
+- Mileage
+- Times

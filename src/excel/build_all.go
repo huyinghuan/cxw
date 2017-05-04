@@ -71,6 +71,7 @@ func outputSumSheet(excelConfig *config.ExcelOutput, file *xlsx.File) {
 
 			if cel.Value == "" && excelConfig.Sum[index] != "" {
 				newCel := row.AddCell()
+				//填充sum空白表格
 				newCel.SetValue(sheet.Rows[len(sheet.Rows)-2].Cells[index].Value)
 			}
 
@@ -83,11 +84,16 @@ func outputSumSheet(excelConfig *config.ExcelOutput, file *xlsx.File) {
 
 }
 
-func outputOneExcel(configFileName string, outputFile string, excelRows []*data.ExcelRowData) {
+func outputOneExcel(configFileName string, outputFile string, excelRows []*data.ExcelRowData, skip int) {
+
 	//为了能够反射struct的函数，new个空间
 	var excelFactory = new(kind.Factory)
 	//获取表格配置文件
 	var excelConfig = config.ReadExcelOutput("config/excel/" + configFileName + ".yml")
+	//计算
+	if excelConfig.Calculate != "" {
+		utils.Invoke(excelFactory, excelConfig.Calculate, excelRows, skip)
+	}
 	//------------------------------------
 	//获取 配置里面的 数据分组函数名
 	//通过反射机制 加工分组 数据
@@ -96,7 +102,6 @@ func outputOneExcel(configFileName string, outputFile string, excelRows []*data.
 	utils.Invoke(excelFactory, excelConfig.ExcelKind, excelRows, excelConfig, categoryGroup)
 	//强转
 	//------------------------------------
-
 	file := xlsx.NewFile()
 	//生产sheet
 	for sheetName, rowsData := range categoryGroup {
@@ -104,7 +109,10 @@ func outputOneExcel(configFileName string, outputFile string, excelRows []*data.
 	}
 
 	outputSumSheet(excelConfig, file)
-
+	file.Sheets[0], file.Sheets[len(file.Sheets)-1] = file.Sheets[len(file.Sheets)-1], file.Sheets[0]
+	if excelConfig.Onlysum {
+		file.Sheets = []*xlsx.Sheet{file.Sheets[0]}
+	}
 	//存文件
 	err := file.Save(outputFile)
 	if err != nil {
@@ -120,11 +128,8 @@ func outputOneExcel(configFileName string, outputFile string, excelRows []*data.
 func BuildOne(inputDataSource string, sheetConfig map[string]string, layout *config.ExcelLayout) {
 	//获取数据源的数据
 	var excelRowsData = GetDataSource(inputDataSource, layout)
-	if err := kind.CalculateAll(excelRowsData, layout.Skip); err != nil {
-		return
-	}
 	for configFileName, outputFile := range sheetConfig {
-		outputOneExcel(configFileName, outputFile, excelRowsData)
+		outputOneExcel(configFileName, outputFile, excelRowsData, layout.Skip)
 	}
 }
 

@@ -1,6 +1,7 @@
 excelkind: TwolayerCategory
 category: CarLine
 twocategory: CarID
+calculate: CalculateAll
 cols:
 - SubmitDate
 - DepartDate

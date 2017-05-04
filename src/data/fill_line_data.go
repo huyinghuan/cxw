@@ -37,6 +37,9 @@ func (lineData *ExcelRowData) SetDepartDate(cell *xlsx.Cell) {
 //SetCarLine 处理路线
 func (lineData *ExcelRowData) SetCarLine(cell *xlsx.Cell) {
 	value := cell.Value
+	value = strings.Replace(value, "-", "", -1)
+	value = strings.Replace(value, "——", "", -1)
+	value = strings.Replace(value, "—", "", -1)
 	lineData.CarLine = strings.TrimSpace(value)
 }
 
